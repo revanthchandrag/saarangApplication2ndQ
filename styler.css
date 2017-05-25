@@ -1,0 +1,181 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #000;
+}
+
+.container {
+    position: relative;
+    height:100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.sun div {
+    display: inline-block;
+    position: absolute;
+}
+
+
+.planet{
+    z-index: 9;
+}
+
+.sun {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    top: 50%;
+    left: auto;
+    display: inline-block;
+    position: absolute;
+    box-shadow: 0 0 120px #f1da36, 0 0 60px #f2ad00, 0 0 10px #c96800, 0 0 200px #feff8f;
+    background: radial-gradient(center, ellipse cover, #fcf3a1 0%, #f1da36 100%);
+    box-shadow: 0 0 120px #f1da36, 0 0 60px #f2ad00, 0 0 10px #c96800, 0 0 200px #feff8f;
+    background: -moz-radial-gradient(center, ellipse cover, #fcf3a1 0%, #f1da36 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #fcf3a1), color-stop(100%, #f1da36));
+    background: -webkit-radial-gradient(center, ellipse cover, #fcf3a1 0%, #f1da36 100%);
+    background: -o-radial-gradient(center, ellipse cover, #fcf3a1 0%, #f1da36 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #fcf3a1 0%, #f1da36 100%);
+}
+
+.mercury {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    left: 0;
+    top: 25px;
+    background: red;
+}
+
+.venus {
+    width: 15px;
+    height: 15px;
+    border-radius: 7.5px;
+    background: #8EDD6F;
+    top: 35px;
+    left: 0px;
+}
+
+.earth-hide{
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;  
+}
+.earth-shadow{
+    top: -20px;
+    left: 0px;         
+    content: '';
+    display: block;
+    height: 34px;
+    width: 34px;
+    background: #000;
+    -webkit-box-shadow: 0px 0px 4px 3px rgba(0,0,0,1);
+    -moz-box-shadow:0px 0px 4px 3px  rgba(0,0,0,1);
+    box-shadow: 0px 0px 4px 3px rgba(0,0,0,1);
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    z-index: 300;
+}
+.earth {
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: url('https://raw.githubusercontent.com/LukeMcGurdy/scss-solar-system/master/assets/images/earth.png') no-repeat 0 0 #000533;
+    top: 0;
+    left: 0;
+    &:before{
+        position: absolute;
+        top: 0;
+        left: 0;            
+        content: '';
+        display: block;
+        height: 30px;
+        width: 30px;
+        background: url('https://raw.githubusercontent.com/LukeMcGurdy/scss-solar-system/master/assets/images/clouds.png') no-repeat 0 0;
+    }
+
+     
+}
+
+
+// Orbit lines
+
+.orbit {
+    //border: 1px solid rgba(255, 255, 255, 0.5);   
+}
+
+.mercury-orbit{
+    width: 110px;
+    height: 110px;
+    border-radius: 60px;
+    left: -15px;
+    top: -15px; 
+}
+.venus-orbit{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    left: -35px;
+    top: -35px;   
+}
+.earth-orbit{
+    width: 280px;
+    height: 280px;
+    border-radius: 140px;
+    left: -100px;
+    top: -100px;     
+}
+
+// celestial body animations
+
+.sun {
+    //animation: spin 100s infinite linear;
+}
+
+.mercury-orbit {
+    animation: spin 5s infinite linear;
+}
+
+.venus-orbit {
+    animation: spin 10s infinite linear;
+}
+.earth-shadow{
+    animation: spinCounter 20s infinite linear;
+}
+.earth{
+    animation: spin 20s infinite linear;
+}
+.earth:before{
+    animation: spinCounter 20s infinite linear;
+}
+
+.earth-orbit{
+    animation: spin 20s infinite linear;
+}
+
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinCounter{
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }    
+}
